@@ -1,5 +1,7 @@
 package com.brainstation.gsjbankapi.models;
 
+import com.brainstation.gsjbankapi.dto.CertificateDepositDTO;
+
 import java.time.LocalDate;
 
 public class CertificateDeposit {
@@ -15,13 +17,13 @@ public class CertificateDeposit {
 
     }
 
-    public CertificateDeposit(int id, String currency, float mainBalance, float interestMaturity, LocalDate maturityDate, String certificateType) {
-        this.id = id;
-        this.currency = currency;
-        this.mainBalance = mainBalance;
-        this.interestMaturity = interestMaturity;
-        this.maturityDate = maturityDate;
-        this.certificateType = certificateType;
+    public CertificateDeposit(CertificateDepositDTO certificateDepositDTO) {
+        this.id = certificateDepositDTO.getId();
+        this.currency = certificateDepositDTO.getCurrency();
+        this.mainBalance = certificateDepositDTO.getMainBalance();
+        this.interestMaturity = certificateDepositDTO.getInterestMaturity();
+        this.maturityDate = certificateDepositDTO.getMaturityDate();
+        this.certificateType = certificateDepositDTO.getCertificateType();
     }
 
     public int getId() {

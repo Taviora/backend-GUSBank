@@ -15,8 +15,9 @@ public class UserDTO {
     private String name;
     private String lastname;
     private String idCard;
-    private String province;
+    private String state;
     private String address;
+    private String phoneNumber;
     private String email;
     private String gender;
     private LocalDate birthDate;
@@ -31,7 +32,8 @@ public class UserDTO {
         this.name = user.getName();
         this.lastname = user.getLastname();
         this.idCard = user.getIdCard();
-        this.province = user.getState();
+        this.state = user.getState();
+        this.phoneNumber = user.getPhoneNumber();
         this.address = user.getAddress();
         this.email = user.getEmail();
         this.gender = user.getGender();
@@ -71,13 +73,6 @@ public class UserDTO {
         this.idCard = idCard;
     }
 
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
-    }
 
     public String getAddress() {
         return address;
@@ -117,5 +112,21 @@ public class UserDTO {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

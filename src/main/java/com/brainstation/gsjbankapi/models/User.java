@@ -12,6 +12,7 @@ public class User {
     private String idCard;
     private String state;
     private String address;
+    private String phoneNumber;
     private String email;
     private String gender;
     private LocalDate birthDate;
@@ -26,8 +27,10 @@ public class User {
         this.name = userDTO.getName();
         this.lastname = userDTO.getLastname();
         this.idCard = userDTO.getIdCard();
-        this.state = userDTO.getProvince();
+        this.phoneNumber = userDTO.getPhoneNumber();
+        this.state = userDTO.getState();
         this.email = userDTO.getEmail();
+        this.address = userDTO.getAddress();
         this.gender = userDTO.getGender();
         this.birthDate = userDTO.getBirthDate();
         this.password = userDTO.getPassword();
@@ -111,5 +114,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

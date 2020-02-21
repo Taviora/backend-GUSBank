@@ -1,5 +1,7 @@
 package com.brainstation.gsjbankapi.models;
 
+import com.brainstation.gsjbankapi.dto.PayServiceDTO;
+
 import java.time.LocalDate;
 
 public class PayService {
@@ -13,11 +15,11 @@ public class PayService {
 
     }
 
-    public PayService(int id, float cancelBalance, LocalDate date, String description) {
-        this.id = id;
-        this.cancelBalance = cancelBalance;
-        this.date = date;
-        this.description = description;
+    public PayService(PayServiceDTO payServiceDTO) {
+        this.id = payServiceDTO.getId();
+        this.cancelBalance = payServiceDTO.getCancelBalance();
+        this.date = payServiceDTO.getDate();
+        this.description = payServiceDTO.getDescription();
     }
 
     public int getId() {

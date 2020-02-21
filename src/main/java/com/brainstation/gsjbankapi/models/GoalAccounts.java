@@ -1,5 +1,7 @@
 package com.brainstation.gsjbankapi.models;
 
+import com.brainstation.gsjbankapi.dto.GoalAccountDTO;
+
 import java.time.LocalDate;
 
 public class GoalAccounts {
@@ -17,15 +19,15 @@ public class GoalAccounts {
 
     }
 
-    public GoalAccounts(int id, String goalName, float savingFee, String currency, LocalDate initialData, LocalDate finalDate, LocalDate discountDate, float balance) {
-        this.id = id;
-        this.goalName = goalName;
-        this.savingFee = savingFee;
-        this.currency = currency;
-        this.initialData = initialData;
-        this.finalDate = finalDate;
-        this.discountDate = discountDate;
-        this.balance = balance;
+    public GoalAccounts(GoalAccountDTO goalAccountDTO) {
+        this.id = goalAccountDTO.getId();
+        this.goalName = goalAccountDTO.getGoalName();
+        this.savingFee = goalAccountDTO.getSavingFee();
+        this.currency = goalAccountDTO.getCurrency();
+        this.initialData = goalAccountDTO.getInitialDate();
+        this.finalDate = goalAccountDTO.getFinalDate();
+        this.discountDate = goalAccountDTO.getDiscountDate();
+        this.balance = goalAccountDTO.getBalance();
     }
 
     public int getId() {

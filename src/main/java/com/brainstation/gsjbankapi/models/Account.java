@@ -1,5 +1,7 @@
 package com.brainstation.gsjbankapi.models;
 
+import com.brainstation.gsjbankapi.dto.AccountDTO;
+
 import java.time.LocalDate;
 
 public class Account {
@@ -9,24 +11,26 @@ public class Account {
     private String description;
     private String ibanNumber;
     private String bankNumber;
-    private String phoneNumber;
     private LocalDate createdDate;
     private float minimumBalance;
     private float interest;
+    private int userId;
 
     public Account() {
 
     }
 
-    public Account(Account accountDTO) {
+    public Account(AccountDTO accountDTO) {
 
         this.id = accountDTO.getId();
         this.currency = accountDTO.getCurrency();
         this.description = accountDTO.getDescription();
+        this.bankNumber = accountDTO.getBankNumber();
         this.ibanNumber = accountDTO.getBankNumber();
-        this.phoneNumber = accountDTO.getPhoneNumber();
         this.createdDate = accountDTO.getCreatedDate();
         this.minimumBalance = accountDTO.getMinimumBalance();
+        this.interest = accountDTO.getInterest();
+        this.userId = accountDTO.getUserId();
     }
 
     public int getId() {
@@ -69,14 +73,6 @@ public class Account {
         this.bankNumber = bankNumber;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public LocalDate getCreatedDate() {
         return createdDate;
     }
@@ -100,4 +96,14 @@ public class Account {
     public void setInterest(float interest) {
         this.interest = interest;
     }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+
 }

@@ -16,10 +16,10 @@ public class AccountDTO {
     private String description;
     private String ibanNumber;
     private String bankNumber;
-    private String phoneNumber;
     private LocalDate createdDate;
     private float minimumBalance;
     private float interest;
+    private int userId;
 
     public AccountDTO(){
 
@@ -31,10 +31,10 @@ public class AccountDTO {
         this.description =  account.getDescription();
         this.ibanNumber = account.getIbanNumber();
         this.bankNumber = account.getBankNumber();
-        this.phoneNumber = account.getPhoneNumber();
         this.createdDate = account.getCreatedDate();
         this.minimumBalance = account.getMinimumBalance();
         this.interest = account.getInterest();
+        this.userId = account.getUserId();
     }
 
     public int getId() {
@@ -77,13 +77,6 @@ public class AccountDTO {
         this.bankNumber = bankNumber;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
     public LocalDate getCreatedDate() {
         return createdDate;
@@ -107,5 +100,13 @@ public class AccountDTO {
 
     public void setInterest(float interest) {
         this.interest = interest;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
