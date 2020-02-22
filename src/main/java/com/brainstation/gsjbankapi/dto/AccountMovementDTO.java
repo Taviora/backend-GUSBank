@@ -17,6 +17,7 @@ public class AccountMovementDTO {
     private float balance;
     private LocalDate date;
     private String detail;
+    private int accountId;
 
     public AccountMovementDTO(){
 
@@ -29,6 +30,7 @@ public class AccountMovementDTO {
         this.balance = accountMovement.getBalance();
         this.date = accountMovement.getDate();
         this.detail = accountMovement.getDetail();
+        this.accountId = accountMovement.getAccountId();
     }
 
     public int getId() {
@@ -77,5 +79,13 @@ public class AccountMovementDTO {
 
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    public int getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(int accountId) {
+        this.accountId = accountId;
     }
 }

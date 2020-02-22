@@ -1,7 +1,7 @@
 package com.brainstation.gsjbankapi.controllers;
 
 import com.brainstation.gsjbankapi.models.Account;
-import com.brainstation.gsjbankapi.services.AccountService;
+import com.brainstation.gsjbankapi.services.Account.AccountService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -1,10 +1,9 @@
-package com.brainstation.gsjbankapi.services;
+package com.brainstation.gsjbankapi.services.Account;
 
 import com.brainstation.gsjbankapi.dao.AccountDao;
 import com.brainstation.gsjbankapi.dto.AccountDTO;
-import com.brainstation.gsjbankapi.dto.UserDTO;
 import com.brainstation.gsjbankapi.models.Account;
-import com.brainstation.gsjbankapi.models.User;
+import com.brainstation.gsjbankapi.services.Account.AccountService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -12,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class AccountServiceImplementation implements AccountService{
+public class AccountServiceImplementation implements AccountService {
 
     private AccountDao accountDao;
 
@@ -31,7 +30,7 @@ public class AccountServiceImplementation implements AccountService{
         {
             return null;
         }
-    };
+    }
 
     @Override
     public Account getAccountById(int id) {
@@ -42,7 +41,7 @@ public class AccountServiceImplementation implements AccountService{
         }else {
             return null;
         }
-    };
+    }
 
     @Override
     public boolean removeAccountById(Account account) {
@@ -52,12 +51,12 @@ public class AccountServiceImplementation implements AccountService{
         }else{
             return false;
         }
-    };
+    }
 
     @Override
     public Account updateAccount(Account account) {
         return null;
-    };
+    }
 
     @Override
     public List<Account> getAllUsersAccountById(int id) {
@@ -68,5 +67,5 @@ public class AccountServiceImplementation implements AccountService{
             accounts.add(new Account((accountDTO)));
         }
         return accounts;
-    };
+    }
 }

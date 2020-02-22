@@ -1,9 +1,9 @@
-package com.brainstation.gsjbankapi.services;
+package com.brainstation.gsjbankapi.services.User;
 
 import com.brainstation.gsjbankapi.dao.UserDao;
 import com.brainstation.gsjbankapi.dto.UserDTO;
 import com.brainstation.gsjbankapi.models.User;
-import org.springframework.http.ResponseEntity;
+import com.brainstation.gsjbankapi.services.User.UserService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -71,6 +71,7 @@ public class UserServiceImplementation implements UserService {
     }
 
     @Override
+    @Transactional
     public List<User> getAllUsers() {
         List<UserDTO> userDTOList = userDao.findAll();
         List<User> users = new ArrayList<>();
@@ -79,6 +80,20 @@ public class UserServiceImplementation implements UserService {
             users.add(new User((userDTO)));
         }
        return users;
+    }
+
+    @Override
+    @Transactional
+    public String login(String email, String password) {
+        UserDTO existingUserByEmail = userDao.findByEmail(email);
+        if(existingUserByEmail != null){
+            if(existingUserByEmail.getEmail().equals(email) && existingUserByEmail.getPassword().equals(password)){
+                return "authenticated";
+            }else{
+                return "error";
+            }
+        }
+        return "error";
     }
 
 }

@@ -1,4 +1,4 @@
-package com.brainstation.gsjbankapi.services;
+package com.brainstation.gsjbankapi.services.Account;
 
 import com.brainstation.gsjbankapi.dto.AccountDTO;
 import com.brainstation.gsjbankapi.dto.UserDTO;

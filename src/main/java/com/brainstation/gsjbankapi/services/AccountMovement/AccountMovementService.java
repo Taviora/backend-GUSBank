@@ -1,4 +1,4 @@
-package com.brainstation.gsjbankapi.services;
+package com.brainstation.gsjbankapi.services.AccountMovement;
 
 import com.brainstation.gsjbankapi.models.AccountMovement;
 import com.brainstation.gsjbankapi.models.User;

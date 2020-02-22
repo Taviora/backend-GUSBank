@@ -1,7 +1,7 @@
 package com.brainstation.gsjbankapi.controllers;
 
 
-import com.brainstation.gsjbankapi.services.PayServiceService;
+import com.brainstation.gsjbankapi.services.PayService.PayServiceService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -1,4 +1,4 @@
-package com.brainstation.gsjbankapi.services;
+package com.brainstation.gsjbankapi.services.User;
 
 import com.brainstation.gsjbankapi.dto.UserDTO;
 import com.brainstation.gsjbankapi.models.User;
@@ -19,4 +19,5 @@ public interface UserService {
 
     List<User> getAllUsers();
 
+    String login(String email,String password);
 }

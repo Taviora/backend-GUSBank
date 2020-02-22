@@ -1,4 +1,4 @@
-package com.brainstation.gsjbankapi.services;
+package com.brainstation.gsjbankapi.services.PayService;
 
 import com.brainstation.gsjbankapi.models.PayService;
 import com.brainstation.gsjbankapi.models.User;

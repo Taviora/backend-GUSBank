@@ -1,7 +1,7 @@
 package com.brainstation.gsjbankapi.controllers;
 
 import com.brainstation.gsjbankapi.models.User;
-import com.brainstation.gsjbankapi.services.UserService;
+import com.brainstation.gsjbankapi.services.User.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,8 +22,19 @@ public class UserController {
         if(userService.saveUser(user) != null){
             return new ResponseEntity(user, HttpStatus.OK);
         }else{
-            return new ResponseEntity("User already exists", HttpStatus.ALREADY_REPORTED);
+            return new ResponseEntity("Email or Id Card already exists", HttpStatus.ALREADY_REPORTED);
         }
+    }
+
+    @PostMapping("login")
+    public ResponseEntity login(@RequestBody User user){
+
+        if(userService.login(user.getEmail(),user.getPassword()).equals("authenticated")){
+            //String jwt = jwtSecurity.generateJWT(user.getEmail());
+            return new ResponseEntity("authenticated",HttpStatus.OK);
+        }
+
+        return new ResponseEntity("Email or password are incorrect,try again",HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("{userId}")
