@@ -18,4 +18,7 @@ public interface AccountDao extends JpaRepository<AccountDTO,Integer> {
 
     @Query("SELECT t FROM com.brainstation.gsjbankapi.dto.AccountDTO t where t.userId = :userId")
     List<AccountDTO> findAllAccountByUserId(@Param("userId") int userId);
+
+    @Query("SELECT t FROM com.brainstation.gsjbankapi.dto.AccountDTO t where t.userId = :userId and t.balance > 0")
+    List<AccountDTO> findAllAccountByUserIdAndBalance(@Param("userId") int userId);
 }

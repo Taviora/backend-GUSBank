@@ -19,6 +19,7 @@ public class AccountDTO {
     private LocalDate createdDate;
     private float minimumBalance;
     private float interest;
+    private float balance;
     private int userId;
 
     public AccountDTO(){
@@ -35,6 +36,15 @@ public class AccountDTO {
         this.minimumBalance = account.getMinimumBalance();
         this.interest = account.getInterest();
         this.userId = account.getUserId();
+        this.balance = account.getBalance();
+    }
+
+    public float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
     }
 
     public int getId() {

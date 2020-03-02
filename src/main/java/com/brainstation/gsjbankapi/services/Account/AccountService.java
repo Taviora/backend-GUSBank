@@ -14,9 +14,13 @@ public interface AccountService  {
 
     Account getAccountById(int id);
 
+    Account getAccountByIbanAccount(String account);
+
     boolean removeAccountById(Account account);
 
     Account updateAccount(Account account);
 
     List<Account> getAllUsersAccountById(int id);
+
+    List<Account> getAllUsersAccountByIdAndBalance(int id);
 }

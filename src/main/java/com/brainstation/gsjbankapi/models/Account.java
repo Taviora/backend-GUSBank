@@ -13,6 +13,7 @@ public class Account {
     private String bankNumber;
     private LocalDate createdDate;
     private float minimumBalance;
+    private float balance;
     private float interest;
     private int userId;
 
@@ -26,11 +27,22 @@ public class Account {
         this.currency = accountDTO.getCurrency();
         this.description = accountDTO.getDescription();
         this.bankNumber = accountDTO.getBankNumber();
-        this.ibanNumber = accountDTO.getBankNumber();
+        this.ibanNumber = accountDTO.getIbanNumber();
         this.createdDate = accountDTO.getCreatedDate();
         this.minimumBalance = accountDTO.getMinimumBalance();
         this.interest = accountDTO.getInterest();
         this.userId = accountDTO.getUserId();
+        this.balance = accountDTO.getBalance();
+    }
+
+
+
+    public float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
     }
 
     public int getId() {

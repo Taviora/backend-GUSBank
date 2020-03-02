@@ -8,6 +8,7 @@ public class FavoriteAccount {
     private String ownerName;
     private String accountNumber;
     private String bankName;
+    private String currency;
     private int userId;
 
     public FavoriteAccount(){
@@ -20,6 +21,15 @@ public class FavoriteAccount {
       this.accountNumber = favoriteAccountDTO.getAccountNumber();
       this.bankName = favoriteAccountDTO.getBankName();
       this.userId = favoriteAccountDTO.getUserId();
+      this.currency = favoriteAccountDTO.getCurrency();
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
     }
 
     public int getId() {

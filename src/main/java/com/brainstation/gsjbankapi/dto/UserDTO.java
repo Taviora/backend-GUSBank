@@ -15,11 +15,8 @@ public class UserDTO {
     private String name;
     private String lastname;
     private String idCard;
-    private String state;
     private String address;
-    private String phoneNumber;
     private String email;
-    private String gender;
     private LocalDate birthDate;
     private String password;
 
@@ -32,11 +29,8 @@ public class UserDTO {
         this.name = user.getName();
         this.lastname = user.getLastname();
         this.idCard = user.getIdCard();
-        this.state = user.getState();
-        this.phoneNumber = user.getPhoneNumber();
         this.address = user.getAddress();
         this.email = user.getEmail();
-        this.gender = user.getGender();
         this.birthDate = user.getBirthDate();
         this.password = user.getPassword();
     }
@@ -90,14 +84,6 @@ public class UserDTO {
         this.email = email;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public LocalDate getBirthDate() {
         return birthDate;
     }
@@ -114,19 +100,4 @@ public class UserDTO {
         this.password = password;
     }
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 }

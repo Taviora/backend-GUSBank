@@ -13,6 +13,7 @@ public class LogUserDTO  {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private LocalDate lastSessionDate;
+    private int userId;
 
     public LogUserDTO(){
 
@@ -21,6 +22,15 @@ public class LogUserDTO  {
     public LogUserDTO(LogUser logUser){
         this.id = logUser.getId();
         this.lastSessionDate = logUser.getLastSessionDate();
+        this.userId = logUser.getUserId();
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public int getId() {

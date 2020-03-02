@@ -2,7 +2,9 @@ package com.brainstation.gsjbankapi.services.Account;
 
 import com.brainstation.gsjbankapi.dao.AccountDao;
 import com.brainstation.gsjbankapi.dto.AccountDTO;
+import com.brainstation.gsjbankapi.dto.UserDTO;
 import com.brainstation.gsjbankapi.models.Account;
+import com.brainstation.gsjbankapi.models.User;
 import com.brainstation.gsjbankapi.services.Account.AccountService;
 import org.springframework.stereotype.Service;
 
@@ -44,6 +46,16 @@ public class AccountServiceImplementation implements AccountService {
     }
 
     @Override
+    public Account getAccountByIbanAccount(String ibanAccount) {
+        AccountDTO existinAccount =  accountDao.findByIbanNumber(ibanAccount);
+
+        if(!ibanAccount.equals("")){
+            return new Account(existinAccount);
+        }
+        return null;
+    }
+
+    @Override
     public boolean removeAccountById(Account account) {
         if(account.getId() > 0){
             accountDao.delete(new AccountDTO(account));
@@ -55,12 +67,23 @@ public class AccountServiceImplementation implements AccountService {
 
     @Override
     public Account updateAccount(Account account) {
-        return null;
+        return new Account(accountDao.save(new AccountDTO(account)));
     }
 
     @Override
     public List<Account> getAllUsersAccountById(int id) {
         List<AccountDTO> accountDTOList = accountDao.findAllAccountByUserId(id);
+        List<Account> accounts = new ArrayList<>();
+
+        for(AccountDTO accountDTO: accountDTOList){
+            accounts.add(new Account((accountDTO)));
+        }
+        return accounts;
+    }
+
+    @Override
+    public List<Account> getAllUsersAccountByIdAndBalance(int id) {
+        List<AccountDTO> accountDTOList = accountDao.findAllAccountByUserIdAndBalance(id);
         List<Account> accounts = new ArrayList<>();
 
         for(AccountDTO accountDTO: accountDTOList){

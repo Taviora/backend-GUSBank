@@ -8,6 +8,7 @@ public class LogUser {
 
     private int id;
     private LocalDate lastSessionDate;
+    private int userId;
 
     public LogUser(){
 
@@ -16,6 +17,7 @@ public class LogUser {
     public  LogUser(LogUserDTO logUserDTO){
         this.id = logUserDTO.getId();
         this.lastSessionDate = logUserDTO.getLastSessionDate();
+        this.userId = logUserDTO.getUserId();
     }
 
     public int getId() {
@@ -32,5 +34,13 @@ public class LogUser {
 
     public void setLastSessionDate(LocalDate lastSessionDate) {
         this.lastSessionDate = lastSessionDate;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

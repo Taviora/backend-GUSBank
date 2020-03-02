@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/account/")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AccountController {
 
     private AccountService accountService;
@@ -40,4 +41,13 @@ public class AccountController {
         return new ResponseEntity(accountService.getAllUsersAccountById(id),HttpStatus.OK);
     }
 
+    @GetMapping("byIbanNumber/{ibanNumber}")
+    public ResponseEntity getAccountIbanNumber(@PathVariable("ibanNumber") String ibanNumber){
+        return new ResponseEntity(accountService.getAccountByIbanAccount(ibanNumber),HttpStatus.OK);
+    }
+
+    @GetMapping("byBalance/{userId}")
+    public ResponseEntity getAllAccountsForUserAndBalance(@PathVariable("userId") int id){
+        return new ResponseEntity(accountService.getAllUsersAccountByIdAndBalance(id),HttpStatus.OK);
+    }
 }

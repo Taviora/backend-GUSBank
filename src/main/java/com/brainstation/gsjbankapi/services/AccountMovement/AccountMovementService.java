@@ -9,6 +9,8 @@ public interface AccountMovementService {
 
     AccountMovement saveAccountMovement(AccountMovement accountMovement);
 
+    AccountMovement saveAccountOwnMovements(AccountMovement accountMovement);
+
     AccountMovement getAccountMovementById(int id);
 
     boolean removeAccountMovementbyId(AccountMovement accountMovement);

@@ -84,16 +84,16 @@ public class UserServiceImplementation implements UserService {
 
     @Override
     @Transactional
-    public String login(String email, String password) {
+    public User login(String email, String password) {
         UserDTO existingUserByEmail = userDao.findByEmail(email);
         if(existingUserByEmail != null){
             if(existingUserByEmail.getEmail().equals(email) && existingUserByEmail.getPassword().equals(password)){
-                return "authenticated";
+                return new User(existingUserByEmail);
             }else{
-                return "error";
+                return null;
             }
         }
-        return "error";
+        return null;
     }
 
 }

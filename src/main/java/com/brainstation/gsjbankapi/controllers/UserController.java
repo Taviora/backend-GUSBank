@@ -1,6 +1,8 @@
 package com.brainstation.gsjbankapi.controllers;
 
+import com.brainstation.gsjbankapi.models.Login;
 import com.brainstation.gsjbankapi.models.User;
+import com.brainstation.gsjbankapi.security.JWTSecurity;
 import com.brainstation.gsjbankapi.services.User.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,12 +10,15 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/user/")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
     private UserService userService;
+    private JWTSecurity jwtSecurity;
 
-    public UserController(UserService userService){
+    public UserController(UserService userService, JWTSecurity jwtSecurity){
         this.userService = userService;
+        this.jwtSecurity = jwtSecurity;
     };
 
     @PostMapping()
@@ -22,16 +27,24 @@ public class UserController {
         if(userService.saveUser(user) != null){
             return new ResponseEntity(user, HttpStatus.OK);
         }else{
-            return new ResponseEntity("Email or Id Card already exists", HttpStatus.ALREADY_REPORTED);
+            return new ResponseEntity("Email or Id Card already exists", HttpStatus.BAD_REQUEST);
         }
     }
+
 
     @PostMapping("login")
     public ResponseEntity login(@RequestBody User user){
 
-        if(userService.login(user.getEmail(),user.getPassword()).equals("authenticated")){
-            //String jwt = jwtSecurity.generateJWT(user.getEmail());
-            return new ResponseEntity("authenticated",HttpStatus.OK);
+        if(userService.login(user.getEmail(),user.getPassword()) != null){
+            User returnUser = userService.login(user.getEmail(),user.getPassword());
+            String jwt = jwtSecurity.generateJWT(user.getEmail());
+            Login login = new Login();
+            login.setJwt(jwt);
+            login.setId(returnUser.getId());
+            login.setName(returnUser.getName());
+            login.setAutenticated(true);
+            login.setLastname(user.getLastname());
+            return new ResponseEntity(login,HttpStatus.OK);
         }
 
         return new ResponseEntity("Email or password are incorrect,try again",HttpStatus.BAD_REQUEST);
@@ -52,8 +65,8 @@ public class UserController {
         return new ResponseEntity(userService.getAllUsers(),HttpStatus.OK);
     }
 
-    @PutMapping()
-    public ResponseEntity updateUser(@RequestBody User user){
+    @PutMapping("{password}")
+    public ResponseEntity updateUser(@PathVariable("password") String password,@RequestBody User user){
 
         userService.updateUser(user);
 

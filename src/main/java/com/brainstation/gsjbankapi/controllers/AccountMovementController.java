@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/account-movement/")
+@CrossOrigin(origins = "http://localhost:3000")
 public class AccountMovementController {
 
     private AccountMovementService accountMovementService;
@@ -22,7 +23,17 @@ public class AccountMovementController {
         if(accountMovementService.saveAccountMovement(accountMovement) != null){
             return new ResponseEntity(accountMovement, HttpStatus.OK);
         }else{
-            return new ResponseEntity("Account already exists", HttpStatus.ALREADY_REPORTED);
+            return new ResponseEntity("Error", HttpStatus.ALREADY_REPORTED);
+        }
+    }
+
+    @PostMapping("own")
+    public ResponseEntity saveAccountOWnMovement(@RequestBody AccountMovement accountMovement){
+
+        if(accountMovementService.saveAccountOwnMovements(accountMovement) != null){
+            return new ResponseEntity(accountMovement, HttpStatus.OK);
+        }else{
+            return new ResponseEntity("Error", HttpStatus.ALREADY_REPORTED);
         }
     }
 

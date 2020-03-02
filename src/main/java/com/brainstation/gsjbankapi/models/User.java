@@ -10,11 +10,9 @@ public class User {
     private String name;
     private String lastname;
     private String idCard;
-    private String state;
     private String address;
     private String phoneNumber;
     private String email;
-    private String gender;
     private LocalDate birthDate;
     private String password;
 
@@ -27,11 +25,8 @@ public class User {
         this.name = userDTO.getName();
         this.lastname = userDTO.getLastname();
         this.idCard = userDTO.getIdCard();
-        this.phoneNumber = userDTO.getPhoneNumber();
-        this.state = userDTO.getState();
         this.email = userDTO.getEmail();
         this.address = userDTO.getAddress();
-        this.gender = userDTO.getGender();
         this.birthDate = userDTO.getBirthDate();
         this.password = userDTO.getPassword();
     };
@@ -68,14 +63,6 @@ public class User {
         this.idCard = idCard;
     }
 
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -90,14 +77,6 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     public LocalDate getBirthDate() {
@@ -116,11 +95,5 @@ public class User {
         this.password = password;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 }
